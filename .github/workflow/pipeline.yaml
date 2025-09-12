@@ -1,0 +1,56 @@
+# .github/workflows/pipeline.yml
+name: ML Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  train-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Generate dummy data (if data missing)
+        run: |
+          python scripts/generate_dummy_data.py || true
+
+      - name: Run training
+        run: |
+          python src/train.py
+
+      - name: Run evaluation
+        run: |
+          python src/evaluate.py
+
+      - name: Commit model artifacts
+        run: |
+          git config --global user.email "actions@users.noreply.github.com"
+          git config --global user.name "github-actions"
+          git add model/
+          git commit -m "chore: update model artifacts [skip ci]" || echo "No changes to commit"
+          git push origin HEAD:main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload Evaluation Report
+        uses: actions/upload-artifact@v3
+        with:
+          name: eval-report
+          path: model/eval_report.json
+

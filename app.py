@@ -2,8 +2,8 @@ import gradio as gr
 import joblib
 from src.preprocessing import clean_text
 
-model = joblib.load("models/model_baseline.pkl")
-vectorizer = joblib.load("models/vectorizer.pkl")
+model = joblib.load("model/saved_model.joblib")
+vectorizer = joblib.load("model/vectorizer.joblib")
 
 def predict(text):
     clean = clean_text(text)
