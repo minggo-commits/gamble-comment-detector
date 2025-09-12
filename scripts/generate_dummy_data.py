@@ -1,7 +1,7 @@
 import pandas as pd
 
 judi_examples = [
-    Main slot gacor sini, deposit cepat lewat WA 0812-xxx",
+    "Main slot gacor sini, deposit cepat lewat WA 0812-xxx",
     "Daftar judi online, bonus new member, klik link",
     "Promo bandar togel hari ini, pasang angka via WA",
     "Situs sbobet terbaik, cashback besar, daftar sekarang",
