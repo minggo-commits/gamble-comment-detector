@@ -30,6 +30,14 @@ jobs:
         run: |
           python scripts/generate_dummy_data.py || true
 
+      - name: Generate dummy data (if data missing)
+        run: |
+          if [ ! -f data/comments.csv ]; then
+            python scripts/generate_dummy_data.py
+          else
+            echo "comments.csv already exists, skipping dummy data generation."
+          fi
+
       - name: Set PYTHONPATH
         run: echo "PYTHONPATH=$PWD" >> $GITHUB_ENV
 
