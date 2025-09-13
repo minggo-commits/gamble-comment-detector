@@ -1,4 +1,4 @@
-# 🎯 Gamble Comment Detector
+# 🎯 Gamble Comment Detector (Free Tools)
 
 <p align="center">
   <img src="https://img.shields.io/badge/Python-3.8+-blue.svg" alt="Python Version">
@@ -250,3 +250,13 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 <p align="center">
   <strong>⭐ Don't forget to star this repository if you found it helpful!</strong>
 </p>
+
+
+
+
+
+
+
+
+
+
