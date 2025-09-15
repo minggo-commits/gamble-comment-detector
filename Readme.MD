@@ -32,24 +32,6 @@
 
 This project implements a complete **MLOps pipeline** using GitHub Actions that automatically handles the entire machine learning lifecycle:
 
-### 🏗️ Pipeline Architecture
-
-```mermaid
-graph TD
-    A[Code Push to Main] --> B[GitHub Actions Trigger]
-    B --> C[Setup Environment]
-    C --> D{Data Exists?}
-    D -->|No| E[Generate Dummy Data]
-    D -->|Yes| F[Skip Data Generation]
-    E --> G[Model Training]
-    F --> G
-    G --> H[Model Evaluation]
-    H --> I[Save Model Artifacts]
-    I --> J[Commit to Repository]
-    J --> K[Deploy to Hugging Face Spaces]
-    K --> L[🎉 Production Ready]
-```
-
 ### ⚙️ Pipeline Stages
 
 | Stage | Description | Tools Used |
@@ -66,14 +48,6 @@ graph TD
 - **🔄 Automatic**: Every push to `main` branch
 - **🎮 Manual**: Workflow dispatch for on-demand runs
 - **📅 Scheduled**: Can be configured for periodic retraining
-
-### 🛡️ Pipeline Benefits
-
-- **🔒 Reproducibility**: Consistent environment and versioning
-- **⚡ Fast Iteration**: Automated testing and deployment
-- **📊 Monitoring**: Built-in evaluation and reporting
-- **🔄 Continuous Integration**: Seamless model updates
-- **🚀 Zero-Downtime Deployment**: Automatic production updates
 
 ---
 
@@ -143,26 +117,26 @@ python src/evaluate.py
 gamble-comment-detector/
 ├── 📁 .github/
 │   └── workflows/
-│       └── pipeline.yml   # 🔄 MLOps Pipeline Configuration
+│       └── pipeline.yml   # Pipeline Configuration
 ├── 📁 app/
 │   ├── __init__.py
 │   └── main.py            # FastAPI application
 ├── 📁 data/
 │   └── comments.csv       # Training dataset
 ├── 📁 model/
-│   ├── eval_report.json   # 📊 Automated evaluation metrics
-│   ├── saved_model.joblib # 🤖 Auto-generated ML model
-│   └── vectorizer.joblib  # 📝 Auto-generated text vectorizer
+│   ├── eval_report.json   # Automated evaluation metrics
+│   ├── saved_model.joblib # Auto-generated ML model
+│   └── vectorizer.joblib  # Auto-generated text vectorizer
 ├── 📁 notebooks/
 │   └── Baseline.ipynb     # Jupyter notebook for experimentation
 ├── 📁 scripts/
-│   └── generate_dummy_data.py  # 🔄 Auto data generation
+│   └── generate_dummy_data.py  # Auto data generation
 ├── 📁 src/
 │   ├── __init__.py
-│   ├── evaluate.py        # 📈 Automated model evaluation
+│   ├── evaluate.py        # Automated model evaluation
 │   ├── inference.py       # Prediction logic
 │   ├── preprocessing.py   # Data preprocessing
-│   └── train.py          # 🏋️ Automated model training
+│   └── train.py          # Automated model training
 ├── app.py                # Main application entry point
 ├── requirements.txt      # Python dependencies
 └── README.md            # This file
@@ -199,19 +173,6 @@ Response:
 
 ---
 
-## 🧠 Model Information
-
-- **Algorithm**: Logistic Regression with TF-IDF vectorization
-- **Features**: Text preprocessing with stop word removal and stemming
-- **Auto-Training**: Triggered on every code push to main branch
-- **Performance** (Latest Pipeline Run): 
-  - Accuracy: 92%
-  - Precision: 89%
-  - Recall: 94%
-  - F1-Score: 91%
-
----
-
 ## 🔄 MLOps Workflow Details
 
 ### GitHub Actions Pipeline Configuration
@@ -235,7 +196,6 @@ The automated pipeline (`pipeline.yml`) includes:
 - **🔒 Version Control**: Automatic commits of model artifacts with `[skip ci]` tags
 - **📊 Evaluation Reports**: JSON reports uploaded as GitHub Actions artifacts
 - **🚀 Production Deployment**: Seamless integration with Hugging Face Spaces
-- **⚡ Conflict Resolution**: Built-in git rebase and error handling
 
 ### 🛠️ Required Secrets
 
@@ -268,20 +228,6 @@ act -j train-and-deploy
 
 ---
 
-## 📈 Model Training Pipeline
-
-### Automated Workflow
-1. **Data Preprocessing** - Automatic text cleaning and normalization
-2. **Feature Engineering** - TF-IDF vectorization with optimal parameters
-3. **Model Training** - Logistic Regression with hyperparameter optimization
-4. **Evaluation** - Comprehensive metrics calculation and reporting
-5. **Deployment** - Zero-downtime deployment to production
-
-### Manual Override
-Each pipeline step can also be run manually for development and debugging.
-
----
-
 ## 🤝 Contributing
 
 We welcome contributions! The automated pipeline will test your changes automatically.
@@ -289,11 +235,10 @@ We welcome contributions! The automated pipeline will test your changes automati
 ### How to Contribute
 
 1. **Fork** the repository
-2. **Create** a feature branch (`git checkout -b feature/amazing-feature`)
-3. **Commit** your changes (`git commit -m 'Add amazing feature'`)
-4. **Push** to the branch (`git push origin feature/amazing-feature`)
+2. **Create** a feature branch (`git checkout -b feature/-------`)
+3. **Commit** your changes (`git commit -m '-----------'`)
+4. **Push** to the branch (`git push origin feature/---------`)
 5. **Open** a Pull Request
-6. **✅ Automated Testing**: Pipeline will automatically test your changes
 
 ---
 
@@ -330,8 +275,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 🙏 Acknowledgments
 
 - Thanks to all contributors who helped build this project
-- Special recognition to the open-source ML community
-- **MLOps Community** for best practices and tools
 - Built with ❤️ using FastAPI, scikit-learn, GitHub Actions, and Hugging Face
 
 ---
@@ -340,7 +283,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - 🐛 **Found a bug?** [Open an issue](https://github.com/minggo-commits/gamble-comment-detector/issues)
 - 💡 **Have a feature request?** [Start a discussion](https://github.com/minggo-commits/gamble-comment-detector/discussions)
-- 📧 **Need help?** Contact the maintainers
 - 🤖 **Pipeline Issues?** Check [Actions tab](https://github.com/minggo-commits/gamble-comment-detector/actions)
 
 ---
