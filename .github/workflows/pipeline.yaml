@@ -37,6 +37,10 @@ jobs:
       - name: Set PYTHONPATH
         run: echo "PYTHONPATH=$PWD" >> $GITHUB_ENV
 
+      - name: Run tests #New feature
+        run: |
+          pytest tests/
+
       - name: Run training
         run: |
           python src/train.py || exit 1
