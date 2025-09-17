@@ -2,11 +2,11 @@
 import os
 import pandas as pd
 import joblib
+import mlflow
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 from sklearn.pipeline import Pipeline
 from sklearn.metrics import precision_recall_fscore_support, accuracy_score
-import mlflow
 from src.preprocessing import preprocess_texts, build_vectorizer, save_vectorizer
 
 DATA_PATH = "data/comments.csv"
