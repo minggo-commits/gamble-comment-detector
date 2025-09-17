@@ -70,6 +70,7 @@ jobs:
       - name: Deploy to Hugging Face Spaces
         run: |
           git clone https://huggingface.co/spaces/minggo-commits/Gamble-Comment-Detector
+          cp -r src Gamble-Comment-Detector/
           cp model/saved_model.joblib Gamble-Comment-Detector/
           cp model/vectorizer.joblib Gamble-Comment-Detector/
           cp app.py Gamble-Comment-Detector/
