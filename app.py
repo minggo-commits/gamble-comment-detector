@@ -5,8 +5,8 @@ import json
 import os
 from src.preprocessing import clean_text
 
-model = joblib.load("model/saved_model.joblib")
-vectorizer = joblib.load("model/vectorizer.joblib")
+model = joblib.load("saved_model.joblib")
+vectorizer = joblib.load("vectorizer.joblib")
 
 def predict(text):
     clean = clean_text(text)
