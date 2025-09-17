@@ -6,7 +6,7 @@ from src.preprocessing import preprocess_texts
 import json
 import matplotlib.pyplot as plt
 import seaborn as sns
-# import os
+import os
 
 MODEL_PATH = "model/saved_model.joblib"
 VECT_PATH = "model/vectorizer.joblib"
@@ -29,7 +29,7 @@ def evaluate():
     report = classification_report(y_true, y_pred, output_dict=True)
     cm = confusion_matrix(y_true, y_pred).tolist()
 
-    # os.makedirs("model", exist_ok=True)
+    os.makedirs("model", exist_ok=True)
 
     # full report
     with open("model/eval_report.json", "w") as f:
