@@ -72,7 +72,7 @@ jobs:
         run: |
           git config --global user.email "actions@users.noreply.github.com"
           git config --global user.name "github-actions"
-          git add model/ README.md
+          git add model/ Readme.md
           git commit -m "chore: update model artifacts & metrics [skip ci]" || echo "No changes to commit"
           git pull --rebase origin main || true
           git push origin HEAD:main || true
