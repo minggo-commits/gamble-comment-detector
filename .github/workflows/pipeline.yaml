@@ -1,3 +1,4 @@
+# .github/workflows/pipeline.yml
 name: ML Pipeline
 
 on:
@@ -36,44 +37,24 @@ jobs:
       - name: Set PYTHONPATH
         run: echo "PYTHONPATH=$PWD" >> $GITHUB_ENV
 
-      - name: Run tests
-        run: pytest tests/
+      - name: Run tests #New feature
+        run: |
+          pytest tests/
 
       - name: Run training
-        run: python src/train.py || exit 1
+        run: |
+          python src/train.py || exit 1
 
       - name: Run evaluation
-        run: python src/evaluate.py || exit 1
+        run: |
+          python src/evaluate.py || exit 1
 
-      # - name: Update README with latest metrics
-      #   run: |
-      #     if [ -f model/metrics_summary.json ]; then
-      #       METRICS=$(cat model/metrics_summary.json | jq -r '.')
-      #       ACC=$(echo $METRICS | jq -r '.accuracy')
-      #       PREC=$(echo $METRICS | jq -r '.[keys[] | select(test("precision"))]')
-      #       REC=$(echo $METRICS | jq -r '.[keys[] | select(test("recall"))]')
-      #       F1=$(echo $METRICS | jq -r '.[keys[] | select(test("f1"))]')
-
-      #       # remove old block if exists
-      #       sed -i '/## Latest Metrics/,$d' README.md
-
-      #       # append latest metrics
-      #       echo "## Latest Metrics" >> README.md
-      #       echo "" >> README.md
-      #       echo "- Accuracy: ${ACC}" >> README.md
-      #       echo "- Precision: ${PREC}" >> README.md
-      #       echo "- Recall: ${REC}" >> README.md
-      #       echo "- F1-score: ${F1}" >> README.md
-      #       echo "" >> README.md
-      #       echo "![Confusion Matrix](model/confusion_matrix.png)" >> README.md
-      #     fi
-
-      - name: Commit artifacts and README
+      - name: Commit model artifacts
         run: |
           git config --global user.email "actions@users.noreply.github.com"
           git config --global user.name "github-actions"
-          git add model/ README.md
-          git commit -m "chore: update model artifacts & metrics [skip ci]" || echo "No changes to commit"
+          git add model/
+          git commit -m "chore: update model artifacts [skip ci]" || echo "No changes to commit"
           git pull --rebase origin main || true
           git push origin HEAD:main || true
         env:
@@ -92,8 +73,6 @@ jobs:
           cp -r src Gamble-Comment-Detector/
           cp model/saved_model.joblib Gamble-Comment-Detector/
           cp model/vectorizer.joblib Gamble-Comment-Detector/
-          cp model/metrics_summary.json Gamble-Comment-Detector/
-          cp model/confusion_matrix.png Gamble-Comment-Detector/
           cp app.py Gamble-Comment-Detector/
           cp requirements.txt Gamble-Comment-Detector/
           cd Gamble-Comment-Detector
@@ -101,7 +80,8 @@ jobs:
           git config user.email "actions@users.noreply.github.com"
           git config user.name "github-actions"
           git add .
-          git commit -m "Update model artifacts & metrics"
+          git commit -m "Update model artifacts"
           git push https://minggo-commits:${HF_TOKEN}@huggingface.co/spaces/minggo-commits/Gamble-Comment-Detector main
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
+
