@@ -108,13 +108,12 @@ The automated pipeline (`pipeline.yml`) includes:
 
 ```yaml
 # Key Pipeline Steps
-1. 🔧 Environment Setup (Python 3.9)
-2. 📦 Dependency Installation
-3. 📊 Smart Data Management
-4. 🏋️ Automated Model Training
-5. 📈 Performance Evaluation
-6. 💾 Model Artifact Versioning
-7. 🚀 Auto-Deployment to HF Spaces
+1. Environment Setup (Python 3.9)
+2. Dependency Installation
+3. Automated Model Training
+4. Performance Evaluation
+5. Model Artifact Versioning
+6. Auto-Deployment to HF Spaces
 ```
 
 ### Required Secrets
