@@ -45,28 +45,28 @@ jobs:
       - name: Run evaluation
         run: python src/evaluate.py || exit 1
 
-      - name: Update README with latest metrics
-        run: |
-          if [ -f model/metrics_summary.json ]; then
-            METRICS=$(cat model/metrics_summary.json | jq -r '.')
-            ACC=$(echo $METRICS | jq -r '.accuracy')
-            PREC=$(echo $METRICS | jq -r '.[keys[] | select(test("precision"))]')
-            REC=$(echo $METRICS | jq -r '.[keys[] | select(test("recall"))]')
-            F1=$(echo $METRICS | jq -r '.[keys[] | select(test("f1"))]')
+      # - name: Update README with latest metrics
+      #   run: |
+      #     if [ -f model/metrics_summary.json ]; then
+      #       METRICS=$(cat model/metrics_summary.json | jq -r '.')
+      #       ACC=$(echo $METRICS | jq -r '.accuracy')
+      #       PREC=$(echo $METRICS | jq -r '.[keys[] | select(test("precision"))]')
+      #       REC=$(echo $METRICS | jq -r '.[keys[] | select(test("recall"))]')
+      #       F1=$(echo $METRICS | jq -r '.[keys[] | select(test("f1"))]')
 
-            # remove old block if exists
-            sed -i '/## Latest Metrics/,$d' README.md
+      #       # remove old block if exists
+      #       sed -i '/## Latest Metrics/,$d' README.md
 
-            # append latest metrics
-            echo "## Latest Metrics" >> README.md
-            echo "" >> README.md
-            echo "- Accuracy: ${ACC}" >> README.md
-            echo "- Precision: ${PREC}" >> README.md
-            echo "- Recall: ${REC}" >> README.md
-            echo "- F1-score: ${F1}" >> README.md
-            echo "" >> README.md
-            echo "![Confusion Matrix](model/confusion_matrix.png)" >> README.md
-          fi
+      #       # append latest metrics
+      #       echo "## Latest Metrics" >> README.md
+      #       echo "" >> README.md
+      #       echo "- Accuracy: ${ACC}" >> README.md
+      #       echo "- Precision: ${PREC}" >> README.md
+      #       echo "- Recall: ${REC}" >> README.md
+      #       echo "- F1-score: ${F1}" >> README.md
+      #       echo "" >> README.md
+      #       echo "![Confusion Matrix](model/confusion_matrix.png)" >> README.md
+      #     fi
 
       - name: Commit artifacts and README
         run: |
