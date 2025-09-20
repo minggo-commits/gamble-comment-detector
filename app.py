@@ -15,7 +15,7 @@ def predict(text):
     proba = None
     if hasattr(model, "predict_proba"):
         proba = model.predict_proba(vec)[0]
-        proba = { "Aman": round(proba[0]*100, 2), "Judi": round(proba[1]*100, 2) }
+        proba = { "normal": round(proba[0]*100, 2), "judi": round(proba[1]*100, 2) }
 
     label = "🚫 Judi Online" if pred == "judi" or pred == 1 else "✅ Aman"
     return {"Prediksi": label, "Probabilitas (%)": proba}
