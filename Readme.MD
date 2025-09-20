@@ -1,4 +1,4 @@
-# 🎯 Gamble Comment Detector
+# Gamble Comment Detector
 
 <p align="center">
   <img src="https://img.shields.io/badge/Python-3.8+-blue.svg" alt="Python Version">
@@ -16,23 +16,11 @@
 
 ---
 
-## ✨ Features
-
-- **🤖 Smart Detection**: Advanced ML model trained to identify gambling-related comments with high accuracy
-- **⚡ Fast API**: Lightning-fast REST API built with FastAPI for real-time inference
-- **🔄 Automated ML Pipeline**: Complete MLOps workflow with GitHub Actions for training, evaluation, and deployment
-- **📊 Model Evaluation**: Comprehensive evaluation metrics and performance monitoring with automated reporting
-- **🚀 Auto-Deployment**: Seamless deployment to Hugging Face Spaces with every model update
-- **🛠️ Development Tools**: Complete pipeline with training, evaluation, and inference capabilities
-- **📈 Scalable Architecture**: Modular design supporting easy model updates and improvements
-
----
-
-## 🔄 Automated ML Pipeline (MLOps)
+## Automated ML Pipeline (MLOps)
 
 This project implements a complete **MLOps pipeline** using GitHub Actions that automatically handles the entire machine learning lifecycle:
 
-### ⚙️ Pipeline Stages
+### Pipeline Stages
 
 | Stage | Description | Tools Used |
 |-------|-------------|------------|
@@ -43,75 +31,14 @@ This project implements a complete **MLOps pipeline** using GitHub Actions that 
 | **💾 Artifact Management** | Version control for model files | Git commits, `upload-artifact@v4` |
 | **🚀 Auto Deployment** | Deploy to Hugging Face Spaces | Git LFS, HF Spaces API |
 
-### 🎯 Pipeline Triggers
+### Pipeline Triggers
 
 - **🔄 Automatic**: Every push to `main` branch
 - **🎮 Manual**: Workflow dispatch for on-demand runs
-- **📅 Scheduled**: Can be configured for periodic retraining
 
 ---
 
-## 🚀 Quick Start
-
-### Prerequisites
-
-Ensure you have the following installed:
-- **Python 3.8+**
-- **pip** (Python package manager)
-
-### Installation
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/minggo-commits/gamble-comment-detector.git
-   cd gamble-comment-detector
-   ```
-
-2. **Create a virtual environment** (recommended)
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
-   ```
-
-3. **Install dependencies**
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-### Usage
-
-#### 🔥 Start the API Server
-```bash
-python app.py
-```
-
-The API will be available at `http://localhost:8000`
-
-#### 📝 API Documentation
-Once the server is running, visit:
-- **Interactive API Docs**: `http://localhost:8000/docs`
-- **ReDoc Documentation**: `http://localhost:8000/redoc`
-
-#### 🧪 Make Predictions
-```bash
-curl -X POST "http://localhost:8000/predict" \
-     -H "Content-Type: application/json" \
-     -d '{"text": "Your comment text here"}'
-```
-
-#### 🏋️ Manual Model Training
-```bash
-python src/train.py
-```
-
-#### 📊 Manual Model Evaluation
-```bash
-python src/evaluate.py
-```
-
----
-
-## 🏗️ Project Structure
+## Project Structure
 
 ```
 gamble-comment-detector/
@@ -144,7 +71,7 @@ gamble-comment-detector/
 
 ---
 
-## 🔧 API Endpoints
+## API Endpoints
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
@@ -173,7 +100,7 @@ Response:
 
 ---
 
-## 🔄 MLOps Workflow Details
+## MLOps Workflow Details
 
 ### GitHub Actions Pipeline Configuration
 
@@ -190,14 +117,7 @@ The automated pipeline (`pipeline.yml`) includes:
 7. 🚀 Auto-Deployment to HF Spaces
 ```
 
-### 🎯 Pipeline Features
-
-- **🔍 Smart Data Handling**: Auto-generates dummy data if training data is missing
-- **🔒 Version Control**: Automatic commits of model artifacts with `[skip ci]` tags
-- **📊 Evaluation Reports**: JSON reports uploaded as GitHub Actions artifacts
-- **🚀 Production Deployment**: Seamless integration with Hugging Face Spaces
-
-### 🛠️ Required Secrets
+### Required Secrets
 
 For the pipeline to work, set these GitHub repository secrets:
 
@@ -205,7 +125,7 @@ For the pipeline to work, set these GitHub repository secrets:
 
 ---
 
-## 🛠️ Development
+## Development
 
 ### Local Development
 ```bash
@@ -228,7 +148,7 @@ act -j train-and-deploy
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
 We welcome contributions! The automated pipeline will test your changes automatically.
 
@@ -242,7 +162,7 @@ We welcome contributions! The automated pipeline will test your changes automati
 
 ---
 
-## 📋 Roadmap
+## Roadmap
 
 - [x] ✅ Basic ML model implementation
 - [x] ✅ FastAPI REST API
@@ -258,7 +178,7 @@ We welcome contributions! The automated pipeline will test your changes automati
 
 ---
 
-## 🚀 Live Demo
+## Live Demo
 
 **Try the live model**: [Hugging Face Spaces](https://huggingface.co/spaces/minggo-commits/Gamble-Comment-Detector)
 
@@ -266,24 +186,24 @@ We welcome contributions! The automated pipeline will test your changes automati
 
 ---
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - Thanks to all contributors who helped build this project
 - Built with ❤️ using FastAPI, scikit-learn, GitHub Actions, and Hugging Face
 
 ---
 
-## 📞 Support
+## Support
 
-- 🐛 **Found a bug?** [Open an issue](https://github.com/minggo-commits/gamble-comment-detector/issues)
-- 💡 **Have a feature request?** [Start a discussion](https://github.com/minggo-commits/gamble-comment-detector/discussions)
-- 🤖 **Pipeline Issues?** Check [Actions tab](https://github.com/minggo-commits/gamble-comment-detector/actions)
+- **Found a bug?** [Open an issue](https://github.com/minggo-commits/gamble-comment-detector/issues)
+- **Have a feature request?** [Start a discussion](https://github.com/minggo-commits/gamble-comment-detector/discussions)
+- **Pipeline Issues?** Check [Actions tab](https://github.com/minggo-commits/gamble-comment-detector/actions)
 
 ---
 
