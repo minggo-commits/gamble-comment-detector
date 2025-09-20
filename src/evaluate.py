@@ -1,4 +1,3 @@
-# src/evaluate.py
 import joblib
 import pandas as pd
 from sklearn.metrics import classification_report, confusion_matrix
@@ -27,7 +26,8 @@ def evaluate():
     y_pred = model.predict(X)
 
     report = classification_report(y_true, y_pred, output_dict=True)
-    cm = confusion_matrix(y_true, y_pred).tolist()
+    cm_array = confusion_matrix(y_true, y_pred)
+    cm = cm_array.tolist()
 
     os.makedirs("model", exist_ok=True)
 
@@ -35,12 +35,13 @@ def evaluate():
     with open("model/eval_report.json", "w") as f:
         json.dump({"report": report, "confusion_matrix": cm}, f, indent=2)
 
-    # summary
+    # pilih label target dinamis
+    target_label = "judi" if "judi" in report else list(report.keys())[0]
     summary = {
         "accuracy": report["accuracy"],
-        "precision_judi": report["judi"]["precision"],
-        "recall_judi": report["judi"]["recall"],
-        "f1_judi": report["judi"]["f1-score"]
+        f"precision_{target_label}": report[target_label]["precision"],
+        f"recall_{target_label}": report[target_label]["recall"],
+        f"f1_{target_label}": report[target_label]["f1-score"]
     }
     with open("model/metrics_summary.json", "w") as f:
         json.dump(summary, f, indent=2)
@@ -48,7 +49,7 @@ def evaluate():
     # confusion matrix heatmap
     labels = sorted(list(set(y_true)))
     plt.figure(figsize=(6,4))
-    sns.heatmap(cm, annot=True, fmt="d", cmap="Blues",
+    sns.heatmap(cm_array, annot=True, fmt="d", cmap="Blues",
                 xticklabels=labels, yticklabels=labels)
     plt.xlabel("Predicted")
     plt.ylabel("True")
