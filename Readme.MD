@@ -206,6 +206,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-<!-- <p align="center">
+<p align="center">
   <strong>⭐ Don't forget to star this repository if you found it helpful!</strong><br>
-  <e -->
+  <e
