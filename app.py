@@ -3,8 +3,8 @@ import gradio as gr
 import joblib
 
 # load model & vectorizer
-model = joblib.load("saved_model.joblib")
-vectorizer = joblib.load("vectorizer.joblib")
+model = joblib.load("model/saved_model.joblib")
+vectorizer = joblib.load("model/vectorizer.joblib")
 
 def predict(text):
     X = vectorizer.transform([text])
