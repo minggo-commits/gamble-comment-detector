@@ -24,17 +24,17 @@ This project implements a complete **MLOps pipeline** using GitHub Actions that 
 
 | Stage | Description | Tools Used |
 |-------|-------------|------------|
-| **🔧 Environment Setup** | Python 3.9, dependencies installation | `setup-python@v4`, `pip` |
-| **📊 Data Management** | Auto-generate dummy data if missing | Custom Python script |
-| **🏋️ Model Training** | Train ML model with latest data | `scikit-learn`, `joblib` |
-| **📈 Model Evaluation** | Generate performance metrics and reports | Custom evaluation script |
-| **💾 Artifact Management** | Version control for model files | Git commits, `upload-artifact@v4` |
-| **🚀 Auto Deployment** | Deploy to Hugging Face Spaces | Git LFS, HF Spaces API |
+| ** Environment Setup** | Python 3.9, dependencies installation | `setup-python@v4`, `pip` |
+| ** Data Management** | Auto-generate dummy data if missing | Custom Python script |
+| ** Model Training** | Train ML model with latest data | `scikit-learn`, `joblib` |
+| ** Model Evaluation** | Generate performance metrics and reports | Custom evaluation script |
+| ** Artifact Management** | Version control for model files | Git commits, `upload-artifact@v4` |
+| ** Auto Deployment** | Deploy to Hugging Face Spaces | Git LFS, HF Spaces API |
 
 ### Pipeline Triggers
 
-- **🔄 Automatic**: Every push to `main` branch
-- **🎮 Manual**: Workflow dispatch for on-demand runs
+- ** Automatic**: Every push to `main` branch
+- ** Manual**: Workflow dispatch for on-demand runs
 
 ---
 
@@ -194,7 +194,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Acknowledgments
 
 - Thanks to all contributors who helped build this project
-- Built with ❤️ using FastAPI, scikit-learn, GitHub Actions, and Hugging Face
+- Built with using FastAPI, scikit-learn, GitHub Actions, and Hugging Face
 
 ---
 
