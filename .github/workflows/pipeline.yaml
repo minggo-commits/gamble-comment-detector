@@ -72,19 +72,20 @@ jobs:
       - name: Deploy to Hugging Face Spaces
         run: |
           git clone https://huggingface.co/spaces/minggo-commits/Gamble-Comment-Detector
-          cp -r src Gamble-Comment-Detector/
-          cp model/saved_model.joblib Gamble-Comment-Detector/
-          cp model/vectorizer.joblib Gamble-Comment-Detector/
+          rsync -av --delete src/ Gamble-Comment-Detector/src/
+          rsync -av --delete model/ Gamble-Comment-Detector/model/
           cp app.py Gamble-Comment-Detector/
           cp requirements.txt Gamble-Comment-Detector/
-          cd Gamble-Comment-Detector
 
+          cd Gamble-Comment-Detector
           git lfs install
           git config user.email "actions@users.noreply.github.com"
           git config user.name "github-actions"
 
-          git add .
-          git commit -m "Update model artifacts" || echo "No changes to commit"
+          git pull origin main || true
+          git add -A
+          git commit -m "Update model + app from GitHub Actions" || echo "No changes to commit"
           git push https://minggo-commits:${HF_TOKEN}@huggingface.co/spaces/minggo-commits/Gamble-Comment-Detector main
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
+
