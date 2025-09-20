@@ -21,7 +21,7 @@ def predict(text):
     return {"Prediksi": label, "Probabilitas (%)": proba}
 
 def load_metrics():
-    path = "model/metrics_summary.json"
+    path = "model/eval_report.json"
     if os.path.exists(path):
         with open(path) as f:
             return json.load(f)
