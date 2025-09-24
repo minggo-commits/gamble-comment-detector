@@ -10,3 +10,4 @@ gradio
 pytest
 pytest-cov
 seaborn
+xgboost
