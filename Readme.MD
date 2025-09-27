@@ -16,22 +16,53 @@
 
 ---
 
-```mermaid
-flowchart TD
-    A[Push ke branch main / Workflow Dispatch] --> B[Checkout Repo]
-    B --> C[Setup Python 3.9]
-    C --> D[Install Dependencies]
-    D --> E{Cek Data}
-    E -->|Ada| F[Skip Generate Dummy Data]
-    E -->|Tidak Ada| G[Generate Dummy Data]
-    F --> H[Set PYTHONPATH]
-    G --> H[Set PYTHONPATH]
-    H --> I[Run Tests]
-    I --> J[Train Model]
-    J --> K[Evaluate Model]
-    K --> L[Commit Model Artifacts ke GitHub]
-    L --> M[Upload Eval Report (Artifact)]
-    M --> N[Deploy ke Hugging Face Spaces]
++------------------+
+|   Data Source    |
+| (CSV, Database)  |
++------------------+
+          |
+          v
++------------------+
+| Data Ingestion   |
+| (Load CSV)       |
++------------------+
+          |
+          v
++-----------------------------+
+| Data Preprocessing          |
+| - Cleaning text             |
+| - Tokenization              |
+| - Stopword removal          |
+| - Train-test split          |
++-----------------------------+
+          |
+          v
++-----------------------------+
+| Feature Engineering         |
+| - TF-IDF / Word2Vec / BERT  |
++-----------------------------+
+          |
+          v
++-----------------------------+
+| Model Training              |
+| - Logistic Regression       |
+| - SVM / Random Forest       |
+| - Deep Learning (optional)  |
++-----------------------------+
+          |
+          v
++------------------+
+| Model Evaluation |
+| - Accuracy       |
+| - F1-score       |
++------------------+
+          |
+          v
++------------------+
+|   Deployment     |
+| - FastAPI / Flask|
+| - Streamlit App  |
++------------------+
 
 
 ## Automated ML Pipeline (MLOps)
