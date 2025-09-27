@@ -34,7 +34,7 @@ flowchart TD
     K --> L[Commit Model Artifacts ke GitHub]
     L --> M[Upload Eval Report (Artifact)]
     M --> N[Deploy ke Hugging Face Spaces]
-```
+
 
 This project implements a complete **MLOps pipeline** using GitHub Actions that automatically handles the entire machine learning lifecycle:
 
