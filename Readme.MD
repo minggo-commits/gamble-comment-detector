@@ -16,54 +16,6 @@
 
 ---
 
-+------------------+
-|   Data Source    |
-| (CSV, Database)  |
-+------------------+
-          |
-          v
-+------------------+
-| Data Ingestion   |
-| (Load CSV)       |
-+------------------+
-          |
-          v
-+-----------------------------+
-| Data Preprocessing          |
-| - Cleaning text             |
-| - Tokenization              |
-| - Stopword removal          |
-| - Train-test split          |
-+-----------------------------+
-          |
-          v
-+-----------------------------+
-| Feature Engineering         |
-| - TF-IDF / Word2Vec / BERT  |
-+-----------------------------+
-          |
-          v
-+-----------------------------+
-| Model Training              |
-| - Logistic Regression       |
-| - SVM / Random Forest       |
-| - Deep Learning (optional)  |
-+-----------------------------+
-          |
-          v
-+------------------+
-| Model Evaluation |
-| - Accuracy       |
-| - F1-score       |
-+------------------+
-          |
-          v
-+------------------+
-|   Deployment     |
-| - FastAPI / Flask|
-| - Streamlit App  |
-+------------------+
-
 
 ## Automated ML Pipeline (MLOps)
 This project implements a complete **MLOps pipeline** using GitHub Actions that automatically handles the entire machine learning lifecycle:
