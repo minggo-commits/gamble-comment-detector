@@ -18,27 +18,23 @@
 
 ## Automated ML Pipeline (MLOps)
 
-flowchart LR
-    A[📝 Push Code] --> B[🧪 Test & Train]
-    B --> C[📊 Evaluate Model]
-    C --> D[💾 Save Artifacts]
-    D --> E[🚀 Deploy to HF Spaces]
-    
-    style A fill:#e3f2fd
-    style B fill:#f3e5f5
-    style C fill:#e8f5e8
-    style D fill:#fff3e0
-    style E fill:#ffebeeflowchart LR
-    A[📝 Push Code] --> B[🧪 Test & Train]
-    B --> C[📊 Evaluate Model]
-    C --> D[💾 Save Artifacts]
-    D --> E[🚀 Deploy to HF Spaces]
-    
-    style A fill:#e3f2fd
-    style B fill:#f3e5f5
-    style C fill:#e8f5e8
-    style D fill:#fff3e0
-    style E fill:#ffebee
+```mermaid
+flowchart TD
+    A[Push ke branch main / Workflow Dispatch] --> B[Checkout Repo]
+    B --> C[Setup Python 3.9]
+    C --> D[Install Dependencies]
+    D --> E{Cek Data}
+    E -->|Ada| F[Skip Generate Dummy Data]
+    E -->|Tidak Ada| G[Generate Dummy Data]
+    F --> H[Set PYTHONPATH]
+    G --> H[Set PYTHONPATH]
+    H --> I[Run Tests]
+    I --> J[Train Model]
+    J --> K[Evaluate Model]
+    K --> L[Commit Model Artifacts ke GitHub]
+    L --> M[Upload Eval Report (Artifact)]
+    M --> N[Deploy ke Hugging Face Spaces]
+```
 
 This project implements a complete **MLOps pipeline** using GitHub Actions that automatically handles the entire machine learning lifecycle:
 
