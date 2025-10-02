@@ -41,10 +41,8 @@ def train():
     with mlflow.start_run():
         model.fit(X_train, y_train)
 
-        # predictions
         y_pred = model.predict(X_test)
 
-        # metrics
         precision, recall, f1, _ = precision_recall_fscore_support(y_test, y_pred, average="binary", pos_label="judi")
         acc = accuracy_score(y_test, y_pred)
 
@@ -53,7 +51,6 @@ def train():
         mlflow.log_metric("f1_score", float(f1))
         mlflow.log_metric("accuracy", float(acc))
 
-        # save model
         model_path = os.path.join(MODEL_DIR, "saved_model.joblib")
         joblib.dump(model, model_path)
         mlflow.log_artifact(model_path, artifact_path="models")

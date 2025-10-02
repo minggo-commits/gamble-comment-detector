@@ -35,7 +35,6 @@ def evaluate():
     with open("model/eval_report.json", "w") as f:
         json.dump({"report": report, "confusion_matrix": cm}, f, indent=2)
 
-    # pilih label target dinamis
     target_label = "judi" if "judi" in report else list(report.keys())[0]
     summary = {
         "accuracy": report["accuracy"],
